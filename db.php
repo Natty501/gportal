@@ -1,16 +1,14 @@
 <?php
-$host     = "dpg-d4s45pvgi27c73btfs6g-a"; // Render PostgreSQL host
-$port     = "5432";                        // default PostgreSQL port
-$dbname   = "gportal_db";
-$user     = "gportal_db_user";
-$password = "Rc8uPUHQstLexJqSRNSeuVXh1fjGRXPt";        // replace with the password Render gave you
+$servername = "sql113.infinityfree.com";   // MySQL Host Name
+$username = "if0_40508130";                // MySQL User Name
+$password = "214doggy";        // Replace with your vPanel password
+$dbname = "if0_40508130_gportal_db";       // MySQL DB Name
 
-// Connect to PostgreSQL
-$conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
+// Check connection
 if (!$conn) {
-    die("Connection failed: " . pg_last_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
 ?>
-
-

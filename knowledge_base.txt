@@ -1,0 +1,33 @@
+WEBSITE STRUCTURE:
+- appointments.php : Page for booking appointments. Accessible only after login.
+- Shows two options:
+    1. Regular Appointment – schedule a counseling session.
+    2. Special Exam Form – request for special exam arrangements (redirects to special_exam.php).
+
+DATABASE STRUCTURE:
+appointments (id, name, email, student_no, date, time, grade, section, interest, reason, teacher)
+
+LOGIC RULES:
+- User must be logged in (session: $_SESSION['email']).
+- Appointment can only be scheduled during office hours: 8:00 AM – 5:00 PM.
+- Lunch break (12:00 PM – 1:00 PM) is blocked.
+- Appointments cannot be scheduled on weekends (Saturday & Sunday).
+- Minimum date is today; past dates are not allowed.
+- Users must fill out personal info (pre-filled from session), schedule, and consultation details.
+- Consultation categories:
+    - Personal, Academic, Behavioral, Career, Others
+- Subcategories appear based on main category; for "Others," user must type a reason.
+- Teacher field is optional.
+- Upon submission, a success message shows for 5 seconds, confirming the appointment will be processed.
+- Users cannot book multiple appointments for the same time slot (backend checks required).
+
+WEBSITE BEHAVIOR:
+- Booking form appears in a popup when user clicks "Book Now."
+- Users can view their submitted appointments via "View Appointments" button.
+- Success messages fade automatically after 5 seconds.
+- If user selects a weekend date, a modal warns them and prevents submission.
+- Rotating motivational quotes displayed alongside the form.
+
+NOTES:
+- Bot should explain **how to schedule an appointment step by step**, following the rules above.
+- If user asks about other pages or features, answer normally without giving unrelated details.
